@@ -31,13 +31,13 @@ class Product {
     }
     public function getPrice()
     {
-        $this->price .= "€";
-        return $this->price;
+        $price_string = $this->price ."€";
+        return $price_string;
     }
     public function getStock()
     {
-        $this->stock .= "prodotti/o rimasti/o";
-        return $this->stock;
+        $stock_string = $this->stock . "prodotti/o rimasti/o";
+        return $stock_string;
     }
     public function getCode()
     {

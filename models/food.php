@@ -33,7 +33,8 @@ class Food extends Product {
     // ingredients getter and setter
     public function getIngredients()
     {
-        return $this->ingredients;
+        $ingredients_string = implode(', ', $this->ingredients);
+        return $ingredients_string;
     }
 
     public function setIngredients($ingredients)
@@ -46,6 +47,26 @@ class Food extends Product {
             var_dump("Err: ingredients deve contenere almeno un elemento");
             return;
         }
+    }
+
+    // print food card html 
+    public function printFoodCardHTML() {
+
+        echo "<div class=\"col\" style='flex-basis: calc(100%/3 - 30px*2/3)'>
+        <div class=\"card\" style='height: 100%;'>
+          <div class=\"card-body\">
+            <h5 class=\"card-title\" style='text-align: center;'>{$this->getName()}</h5>
+            <span class='card-img-top mb-4' style='font-size: 50px; display: block; text-align: center;'>{$this->category->getImg()}</span>
+            <ul style='list-style-type: none;'>
+                <li><strong>Prezzo:</strong> {$this->getPrice()}</li>
+                <li><strong>Cuantità:</strong> {$this->getStock()}</li>
+                <li><strong>Codice:</strong> {$this->getCode()}</li>
+                <li><strong>Data di scadenza:</strong> {$this->getExpiry_date()}</li>
+                <li><strong>Ingredienti:</strong> {$this->getIngredients()}</li>
+            </ul>
+          </div>
+        </div>
+      </div>";
     }
 
 

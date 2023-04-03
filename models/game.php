@@ -42,7 +42,8 @@ class Game extends Product {
     // materials getter and setter
     public function getMaterials()
     {
-        return $this->materials;
+        $materials_string = implode(', ', $this->materials);
+        return $materials_string;
     }
 
     public function setMaterials($materials)
@@ -55,6 +56,26 @@ class Game extends Product {
             var_dump("Err: materials deve contenere almeno un elemento");
             return;
         }
+    }
+
+    // print game card html 
+    public function printGameCardHTML() {
+
+        echo "<div class=\"col\" style='flex-basis: calc(100%/3 - 30px*2/3)'>
+        <div class=\"card\" style='height: 100%;'>
+            <div class=\"card-body\">
+            <h5 class=\"card-title\" style='text-align: center;'>{$this->getName()}</h5>
+            <span class='card-img-top mb-4' style='font-size: 50px; display: block; text-align: center;'>{$this->category->getImg()}</span>
+            <ul>
+                <li><strong>Prezzo:</strong> {$this->getPrice()}</li>
+                <li><strong>Cuantità:</strong> {$this->getStock()}</li>
+                <li><strong>Codice:</strong> {$this->getCode()}</li>
+                <li><strong>Colore:</strong> {$this->getColor()}</li>
+                <li><strong>Materiali:</strong> {$this->getMaterials()}</li>
+            </ul>
+            </div>
+        </div>
+        </div>";
     }
 
 

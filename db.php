@@ -37,8 +37,6 @@ $food2->setIngredients($food2_ingredients);
 
 $foods = [$food1, $food2];
 
-var_dump($foods);
-
 // creo 2 istanze della classe Game
 
 $game1 = new Game($gatto);
@@ -60,8 +58,6 @@ $game2_materials = ['acciaio','plastica'];
 $game2->setMaterials($game2_materials);
 
 $games = [$game1, $game2];
-
-var_dump($games);
 
 // creo 2 istanze della classe Shelter
 
@@ -90,7 +86,7 @@ $shelter2->setDepth(0.9);
 
 $shelters = [$shelter1, $shelter2];
 
-var_dump($shelters);
+$products = array_merge($foods, $games, $shelters);
 
 
 ?>
