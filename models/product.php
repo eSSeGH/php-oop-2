@@ -12,10 +12,10 @@ class Product {
     function __construct(Category $_category, $_name, $_price, $_stock, $_code) {
 
         $this->category = $_category;
-        $this->name = setName($_name);
-        $this->price = setPrice($_price);
-        $this->stock = setStock($_stock);
-        $this->code = setCode($_code);
+        $this->setName($_name);
+        $this->setPrice($_price);
+        $this->setStock($_stock);
+        $this->setCode($_code);
     }
 
     // verifica disponibilità
@@ -63,7 +63,7 @@ class Product {
         $name = strtoupper($name_string);
         $this->name = $name;
         return $this;
-    }
+    } 
 
     // tutti i prezzi devono avere € alla fine
     public function setPrice($price)

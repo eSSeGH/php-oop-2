@@ -8,8 +8,13 @@ class Shelter extends Product {
     protected float $width;
     protected float $depth;
 
-    function __construct(Category $_category) {
-        parent::__construct($_category);
+    function __construct($_category, $_name, $_price, $_stock, $_code, $_color, $_height, $_width, $_depth) {
+        parent::__construct($_category, $_name, $_price, $_stock, $_code);
+
+        $this->setColor($_color);
+        $this->setHeight($_height);
+        $this->setWidth($_width);
+        $this->setDepth($_depth);
     }
 
     // color getter and setter

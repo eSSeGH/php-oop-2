@@ -6,11 +6,11 @@ class Food extends Product {
     protected string $expiry_date;
     protected $ingredients = [];
 
-    function __construct($_expiry_date, $_ingredients) {
-        parent::__construct(Category $_category, $_name, $_price, $_stock, $_code);
+    function __construct($_category, $_name, $_price, $_stock, $_code, $_expiry_date, array $_ingredients) {
+        parent::__construct($_category, $_name, $_price, $_stock, $_code);
 
-        $this->expiry_date = setExpiry_date($_expiry_date);
-        $this->ingredients = setIngredients($_ingredients);
+        $this->setExpiry_date($_expiry_date);
+        $this->setIngredients($_ingredients);
     }
 
     // expiry_date getter and setter
@@ -40,7 +40,7 @@ class Food extends Product {
         return $ingredients_string;
     }
 
-    public function setIngredients($ingredients)
+    public function setIngredients(array $ingredients)
     {
         // verifico che l'array contenga almeno un oggetto
         if(count($ingredients) > 0) {

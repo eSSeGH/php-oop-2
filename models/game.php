@@ -6,8 +6,11 @@ class Game extends Product {
     protected string $color;
     protected $materials = [];
 
-    function __construct(Category $_category) {
-        parent::__construct($_category);
+    function __construct($_category, $_name, $_price, $_stock, $_code, $_color, array $_materials) {
+        parent::__construct($_category, $_name, $_price, $_stock, $_code);
+
+        $this->setColor($_color);
+        $this->setMaterials($_materials);
     }
 
     // color getter and setter
