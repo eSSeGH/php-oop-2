@@ -5,7 +5,11 @@ class Category {
     protected string $type;
     protected string $img;
 
-    function __construct () {}
+    function __construct ($_type, $_img) {
+
+        $this->setType($_type);
+        $this->setImg($_img);
+    }
 
     // type getter and setters
     public function getType()

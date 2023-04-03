@@ -40,7 +40,7 @@ class Product {
     }
     public function getStock()
     {
-        $stock_string = $this->stock . "prodotti/o rimasti/o";
+        $stock_string = $this->stock . " prodotti rimasti";
         return $stock_string;
     }
     public function getCode()
