@@ -6,8 +6,11 @@ class Food extends Product {
     protected string $expiry_date;
     protected $ingredients = [];
 
-    function __construct(Category $_category) {
-        parent::__construct($_category);
+    function __construct($_expiry_date, $_ingredients) {
+        parent::__construct(Category $_category, $_name, $_price, $_stock, $_code);
+
+        $this->expiry_date = setExpiry_date($_expiry_date);
+        $this->ingredients = setIngredients($_ingredients);
     }
 
     // expiry_date getter and setter

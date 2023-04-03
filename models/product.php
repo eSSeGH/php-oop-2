@@ -9,9 +9,13 @@ class Product {
     protected string $code;
     public Category $category;
 
-    function __construct(Category $_category) {
+    function __construct(Category $_category, $_name, $_price, $_stock, $_code) {
 
         $this->category = $_category;
+        $this->name = setName($_name);
+        $this->price = setPrice($_price);
+        $this->stock = setStock($_stock);
+        $this->code = setCode($_code);
     }
 
     // verifica disponibilità

@@ -17,23 +17,23 @@ $cane->setImg("<i class='fa-solid fa-dog'></i>");
 
 // creo 2 istanze della classe Food
 
-$food1 = new Food($gatto);
-$food1->setName('food1');
-$food1->setPrice(1.49);
-$food1->setStock(2);
-$food1->setCode('123456789012345');
-$food1->setExpiry_date('2024-04-04');
-$food1_ingredients = ['pesce azzurro','salmone'];
-$food1->setIngredients($food1_ingredients);
+$food1 = new Food($gatto,'food1',1.49,2,'123456789012345','2024-04-04',"'pesce azzurro','salmone'");
+// $food1->setName('food1');
+// $food1->setPrice(1.49);
+// $food1->setStock(2);
+// $food1->setCode('123456789012345');
+// $food1->setExpiry_date('2024-04-04');
+// $food1_ingredients = ['pesce azzurro','salmone'];
+// $food1->setIngredients($food1_ingredients);
 
-$food2 = new Food($cane);
-$food2->setName('food2');
-$food2->setPrice(2.19);
-$food2->setStock(2);
-$food2->setCode('023425873982144');
-$food2->setExpiry_date('2025-05-05');
-$food2_ingredients = ['manzo','vitello'];
-$food2->setIngredients($food2_ingredients);
+$food2 = new Food($cane,'food2',2.19,2,'023425873982144','2025-05-05',"'manzo','vitello'");
+// $food2->setName('food2');
+// $food2->setPrice(2.19);
+// $food2->setStock(2);
+// $food2->setCode('023425873982144');
+// $food2->setExpiry_date('2025-05-05');
+// $food2_ingredients = ['manzo','vitello'];
+// $food2->setIngredients($food2_ingredients);
 
 $foods = [$food1, $food2];
 
