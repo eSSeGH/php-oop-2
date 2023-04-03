@@ -28,28 +28,23 @@ class Food extends Product {
             $this->expiry_date = $expiry_date;
             return $now;
         } else {
-            var_dump("Err: expiry_date non può essere una data del passato");
-            return;
+            throw new Exception("Err: $expiry_date non è valido, è una data del passato");
         }
     }
 
     // ingredients getter and setter
     public function getIngredients()
     {
+        // recupero gli elementi dell'array come stringhe da stampare
         $ingredients_string = implode(', ', $this->ingredients);
         return $ingredients_string;
     }
 
-    public function setIngredients(array $ingredients)
+    public function setIngredients(array $new_ingredients)
     {
         // verifico che l'array contenga almeno un oggetto
-        if(count($ingredients) > 0) {
-            $this->ingredients = $ingredients;
-            return $this;
-        } else {
-            var_dump("Err: ingredients deve contenere almeno un elemento");
-            return;
-        }
+        $this->isEmptyArr($new_ingredients);
+        $this->ingredients = $new_ingredients;
     }
 
     // print food card html 

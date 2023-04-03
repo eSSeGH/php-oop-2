@@ -1,8 +1,11 @@
 <?php 
 
 require_once __DIR__."/./category.php";
+require_once __DIR__."/../traits/validator.php";
 
 class Product {
+    use Validator;
+
     protected string $name;
     protected float $price;
     protected int $stock;
@@ -50,35 +53,26 @@ class Product {
 
     // SETTERS
 
-    // tutti i nomi dei prodotti devono essere maiuscoli, 2 > caratteri < 21
     public function setName($name_string)
     {
-        if (strlen($name_string) < 3) {
-            var_dump("err: Il nome deve avere più di 2 caratteri");
-            return; 
-        } else if (strlen($name_string) > 20) {
-            var_dump("err: Il nome deve al massimo 20 caratteri");
-            return; 
-        }
-        $name = strtoupper($name_string);
-        $this->name = $name;
+        $this->testString($name_string, 3, 30);
+
+
+        $this->name = strtoupper($name_string);
         return $this;
     } 
-
-    // tutti i prezzi devono avere € alla fine
-    public function setPrice($price)
+    public function setPrice($new_price)
     {
-        if ($price > 0) {
-            $this->price = $price;
-            return $this;
-        }
+        $this->testNum($new_price);
+        $this->price = $new_price;
+        return $this;
+        
     }
-    public function setStock($stock)
+    public function setStock($new_stock)
     {
-        if ($stock > 0) {
-            $this->stock = $stock;
-            return $this;
-        }
+        $this->testNum($new_stock);
+        $this->stock = $new_stock;
+        return $this;
     } 
     public function setCode($code)
     {
@@ -89,8 +83,7 @@ class Product {
             for ($i = 0; $i < 15; $i++) {
                 
                 if (!is_numeric($code_array[$i]) ) {
-                    var_dump("err: code deve contenere solo valori numerici");
-                    return;
+                    throw new Exception("$code non è valido. Il codice inserito deve contenere solo numeri");
                 }
             }
 
@@ -98,8 +91,7 @@ class Product {
             return $this;
 
         } else {
-            var_dump("err: code deve avere esattamente 15 caratteri");
-            return;
+            throw new Exception("$code non è valido. Il codice inserito deve contenere esattamente 15 cifre");
         }
     }
 }

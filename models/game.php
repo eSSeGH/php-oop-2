@@ -37,8 +37,7 @@ class Game extends Product {
             $this->color = $color;
             return $this;
         } else {
-            var_dump("Err: color può essere solo un valore tra i seguenti: 'RO','AR','GI','VE','AZ','BL','VI','NE',BI'");
-            return;
+            throw new Exception("$color_value non è un codice colore valido. Può essere solo: 'RO','AR','GI','VE','AZ','BL','VI','NE','BI'");
         }
     }
 
@@ -49,16 +48,11 @@ class Game extends Product {
         return $materials_string;
     }
 
-    public function setMaterials($materials)
+    public function setMaterials($new_materials)
     {
         // verifico che l'array contenga almeno un oggetto
-        if(count($materials) > 0) {
-            $this->materials = $materials;
-            return $this;
-        } else {
-            var_dump("Err: materials deve contenere almeno un elemento");
-            return;
-        }
+        $this->isEmptyArr($new_materials);
+        $this->materials = $new_materials;
     }
 
     // print game card html 

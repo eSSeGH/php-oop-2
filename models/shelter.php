@@ -52,16 +52,11 @@ class Shelter extends Product {
         return $this->height;
     }
 
-    public function setHeight($height)
+    public function setHeight($new_height)
     {
         // verifico che height sia maggiore di 0
-        if($height > 0) {
-            $this->height = $height;
-            return $this;
-        } else {
-            var_dump("Err: height deve essere maggiore di 0");
-            return;
-        }
+        $this->testNum($new_height);
+        $this->height = $new_height;
     }
 
     // width getter and setter
@@ -70,17 +65,13 @@ class Shelter extends Product {
         return $this->width;
     }
 
-    public function setWidth($width)
+    public function setWidth($new_width)
     {
         // verifico che width sia maggiore di 0
-        if($width > 0) {
-            $this->width = $width;
-            return $this;
-        } else {
-            var_dump("Err: width deve essere maggiore di 0");
-            return;
-        }
+        $this->testNum($new_width);
+        $this->width = $new_width;
     }
+
 
     // depth getter and setter
     public function getDepth()
@@ -88,17 +79,13 @@ class Shelter extends Product {
         return $this->depth;
     }
 
-    public function setDepth($depth)
+    public function setDepth($new_depth)
     {
         // verifico che depth sia maggiore di 0
-        if($depth > 0) {
-            $this->depth = $depth;
-            return $this;
-        } else {
-            var_dump("Err: depth deve essere maggiore di 0");
-            return;
-        }
+        $this->testNum($new_depth);
+        $this->depth = $new_depth;
     }
+
 
     // print shelter card html 
     public function printShelterCardHTML() {
